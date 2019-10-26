@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WeatherNotice</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>WeatherNotice</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <%= render "shared/header" %>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <aside id="sidebar">
+      <%= render "shared/sidebar" %>
+    </aside>
+    <footer>
+      <%= render "shared/footer" %>
+    </footer>
+  </div>
+</body>
+
 </html>
