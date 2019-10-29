@@ -3,6 +3,14 @@
 <h1><%= @page_title %></h1>
 
 <h2>10月45日(金)の天気</h2>
-<table>
 
-</table>
+<%= form_with method: :get, url: "/show", local: true do |form| %>
+<div>
+    <% options = ["佐倉", "砂川", "室蘭"] %>
+    <%= form.select :search_place, options %>
+    <%= form.date_select :search_date,
+            start_year: 2018, end_year: Time.current.year,
+            use_month_numbers: true %>
+    <%= form.submit "検索" %>
+</div>
+<% end %>
