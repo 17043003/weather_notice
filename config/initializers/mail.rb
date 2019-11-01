@@ -4,7 +4,7 @@ ActionMailer::Base.smtp_settings = {
   domain: 'gmail.com',
   port: 587,
   user_name: 'ishizuka533725@gmail.com',
-  password: '',
+  password: 'xblnsxngemwlfeta',
   authentication: 'plain',
   enable_starttls_auto: true
 }
