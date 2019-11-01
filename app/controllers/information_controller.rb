@@ -7,6 +7,6 @@ class InformationController < ApplicationController
     @weather = Weather.get_weather(params[:search_place])
     # @weather = weather[:weather]
     @user = User.find_by(name: "石塚")
-    NotificationMailer.send_notification_mail(@user).deliver_later
+    NotificationMailer.send_notification_mail(@user, @weather).deliver_later
   end
 end
