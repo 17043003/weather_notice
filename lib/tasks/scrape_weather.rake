@@ -23,7 +23,9 @@ namespace :scrape_weather do
       date << node.css('p').inner_text
     end
 
+    weather = ""
     got_date = []
+    place = ""
 
     date.each do |d|
       tmp_date = d.scan(/(\d{1,2})/)
@@ -34,7 +36,7 @@ namespace :scrape_weather do
     p got_date
 
     doc.xpath('//*[@class="index__tit"]').each do |node|
-      # タイトルの取得
+      # 場所の取得
       place = node.inner_text
       pos = place.index('の')
       place = place[0..pos-1]
@@ -52,6 +54,9 @@ namespace :scrape_weather do
       temperature = node.css('text()').inner_text[2..-1]
       p temperature
     end
+
+    weather_info = Weather.new(weather: weather, date: got_date[0], place: place)
+    weather_info.save
 
   end
 end
